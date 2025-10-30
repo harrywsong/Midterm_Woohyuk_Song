@@ -22,6 +22,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    // Field declarations
     EditText numberInput;
     Button submitButton;
     Button historyButton;
@@ -30,8 +31,10 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> tableList;
     ArrayAdapter<String> adapter;
 
+    // Static list storing history
     public static ArrayList<Integer> historyList = new ArrayList<>();
 
+    // onCreate method
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,15 +46,18 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        // Initialize UI components
         numberInput = findViewById(R.id.edit);
         submitButton = findViewById(R.id.button);
         historyButton = findViewById(R.id.historyButton);
         tableListView = findViewById(R.id.list);
 
+        // Initialize list and adapter
         tableList = new ArrayList<>();
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, tableList);
         tableListView.setAdapter(adapter);
 
+        // Button Click listener for submit
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Button click listener for history
         historyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Item click listener for deletion
         tableListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
