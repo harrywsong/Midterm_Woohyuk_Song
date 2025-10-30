@@ -12,7 +12,7 @@
         android:id="@+id/edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Enter Number Here"
+        android:hint="Enter Number Here"
         android:layout_marginTop="48sp"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,7 +25,18 @@
         android:layout_height="wrap_content"
         android:text="Submit"
         android:layout_marginTop="10sp"
-        android:textSize="30sp"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/historyButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View History"
+        android:layout_marginTop="10sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
