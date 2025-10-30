@@ -57,21 +57,27 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String input = numberInput.getText().toString();
                 if (!input.isEmpty()) {
-                    int number = Integer.parseInt(input);
+                    try {
+                        int number = Integer.parseInt(input);
 
-                    tableList.clear();
+                        tableList.clear();
 
-                    for (int i = 1; i <= 10; i++) {
-                        int result = number * i;
-                        String row = number + " × " + i + " = " + result;
-                        tableList.add(row);
+                        for (int i = 1; i <= 10; i++) {
+                            int result = number * i;
+                            String row = number + " × " + i + " = " + result;
+                            tableList.add(row);
+                        }
+
+                        adapter.notifyDataSetChanged();
+
+                        if (!historyList.contains(number)) {
+                            historyList.add(number);
+                        }
+                    } catch (NumberFormatException e) {
+                        Toast.makeText(MainActivity.this, "Please enter a valid number", Toast.LENGTH_SHORT).show();
                     }
-
-                    adapter.notifyDataSetChanged();
-
-                    if (!historyList.contains(number)) {
-                        historyList.add(number);
-                    }
+                } else {
+                    Toast.makeText(MainActivity.this, "Please enter a number", Toast.LENGTH_SHORT).show();
                 }
             }
         });
